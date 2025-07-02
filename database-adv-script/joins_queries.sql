@@ -39,10 +39,11 @@ FROM
 LEFT JOIN
     bookings AS b ON p.property_id = b.property_id -- Join properties to bookings
 LEFT JOIN
-    reviews AS r ON b.booking_id = r.booking_id; -- Join bookings to reviews
+    reviews AS r ON b.booking_id = r.booking_id
+ORDER BY
+    p.name; -- Added ORDER BY clause for property name
 
--- Query 3: Retrieve all users and all bookings, even if the user has no booking or a booking is not linked to a user,
--- using a combination of LEFT JOIN and RIGHT JOIN (MySQL's equivalent of FULL OUTER JOIN).
+-- Query 3: Retrieve all users and all bookings, even if the user has no booking or a booking is not linked to a user,-- using a combination of LEFT JOIN and RIGHT JOIN (MySQL's equivalent of FULL OUTER JOIN).
 SELECT
     u.user_id,
     u.first_name,
